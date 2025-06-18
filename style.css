@@ -1,0 +1,93 @@
+body {
+  font-family: 'Arial Black', Arial, sans-serif;
+  min-height: 100vh;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: linear-gradient(135deg, #f9fafc 0%, #fceabb 100%);
+  background-repeat: no-repeat;
+}
+
+h1 {
+  margin-top: 30px;
+  color: #e11d48;
+  text-shadow: 1px 1px 6px #fff, 0 0 6px #e11d48;
+  letter-spacing: 2px;
+}
+
+#timer, #moves {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+  color: #e11d48;
+  text-shadow: 1px 1px 4px #fff;
+}
+
+#game-board {
+  display: grid;
+  grid-template-columns: repeat(4, 80px);
+  grid-template-rows: repeat(4, 80px);
+  gap: 10px;
+  margin-top: 20px;
+  background: rgba(255,255,255,0.7);
+  padding: 20px;
+  border-radius: 16px;
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.10);
+}
+
+.square {
+  width: 80px;
+  height: 80px;
+  perspective: 600px;
+}
+
+.square-inner {
+  width: 100%;
+  height: 100%;
+  transition: transform 0.5s;
+  transform-style: preserve-3d;
+  position: relative;
+}
+
+.square.flipped .square-inner {
+  transform: rotateY(180deg);
+}
+
+.square-front, .square-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.square-front {
+  background: #fff;
+  border: 2px solid #e11d48;
+  color: #e11d48;
+}
+
+.square-back {
+  background: #fbbf24;
+  color: #e11d48;
+  transform: rotateY(180deg);
+  border: 2px solid #e11d48;
+}
+
+#game-over {
+  margin-top: 30px;
+  font-size: 2rem;
+  color: #fff;
+  background: #e11d48;
+  padding: 20px 40px;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px #e11d48;
+  text-align: center;
+  display: none;
+  letter-spacing: 2px;
+}
